@@ -1,4 +1,4 @@
-baseURL = "https://xinranmiao.rbind.io/"
+baseURL = "https://xinranmiao.netlify.app"
 theme = "hugo-apero"
 languageCode = "en"
 title = "Xinran Miao"
