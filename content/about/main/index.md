@@ -1,6 +1,7 @@
 ---
-## Configure page content in wide column
-title: To be constructed # leave blank to exclude
-
-show_outro: true
---
+## Configure header of page
+text_align_right: false
+show_title_as_headline: false
+#headline: |
+#  Hi, nice to meet you!
+---
