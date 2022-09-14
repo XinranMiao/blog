@@ -2,7 +2,7 @@
 action_label: Read More &rarr;
 action_link: /about
 action_type: text
-description: I'm Xinran Miao, a second-year PhD student in Statistics at UW-Madison. I obtained MS in Statistics from UW-Madison and BS in Statistics from Nankai University in China.
+description: I'm Xinran Miao (苗欣然), a second-year PhD student in Statistics at UW-Madison. I obtained MS in Statistics from UW-Madison and BS in Statistics from Nankai University in China.
 image_left: true
 images:
 - xinranmiao.jpg
