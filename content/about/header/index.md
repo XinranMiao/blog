@@ -14,3 +14,10 @@ Causal inference is an important area in statistics, but I've never taken any re
 
 
 For causal inference, I'm interested in causal mediation analysis and sensitivity analysis.
+
+
+---
+
+
+Please contact me at <a href="xmiao27@wisc.edu">xmiao27@wisc.edu</a>.
+
