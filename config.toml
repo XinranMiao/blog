@@ -33,7 +33,7 @@ enableEmoji = true
   description = "A website for MATH 888."
   favicon = "/img/favicon.ico"
   logo = ""
-  mainSections = ["blog"]
+  mainSections = ["blogs"]
   navallcaps = true
   # show/hide social icons in site header & footer
   # configure social icons and links below in [[params.social]]
@@ -127,9 +127,9 @@ enableEmoji = true
     url = "/about/"
     weight = 1
   [[menu.header]]
-    name = "Blog"
-    title = "Blog"
-    url = "/blog/"
+    name = "Blogs"
+    title = "Blogs"
+    url = "/blogs/"
     weight = 2
   [[menu.header]]
     name = "Projects"

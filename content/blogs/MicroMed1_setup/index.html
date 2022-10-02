@@ -1,0 +1,97 @@
+---
+author: Xinran Miao
+categories:
+- Causal inference
+- Microbiome
+date: "2022-10-01"
+draft: false
+excerpt: Does mindfulness training affect microbiome? If so, how? In this blog, we motivate and formulate these problems in a causal mediation framework. 
+subtitle: -- A Causal Mediation Perspective
+title: Mindfuness and Microbiome
+---
+
+
+
+<p>Does mindfulness training affect microbiome? If so, how? In this blog, we motivate and formulate these problems in a causal mediation framework <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
+<div id="motivation" class="section level3">
+<h3>Motivation</h3>
+<p>The gut microbiome refers to the community of bacteria and their genetic material living in the gut.
+They have documented relationships with human health and diseases. One with emerging attention is the gut-brain axis: researches have demonstrated the association between microbiota composition and stress / anxiety related behavior.</p>
+<p>On the other hand, recent studies exhibit an effect of mindfulness-based intervention on anxiety and depression.</p>
+<p>Putting two pieces together, a natural question comes up:</p>
+<p>(Q1) Does mindfulness training affect microbiota composition?</p>
+<p>Thinking deeper, we have a follow-up question:</p>
+<p>(Q2) If an effect exists, how does it work? For instance, does mindfulness training affect microbiome by changing people’s diet habits?</p>
+<p>The figure below provides an illustration <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.
+<img src="figures/study_goal_informal.svg" style="display: block; margin: auto;" /></p>
+</div>
+<div id="problem-rephrasing" class="section level3">
+<h3>Problem Rephrasing</h3>
+<p>We regard (Q1) as a question for causal effect: How can we quantify the the effect of an treatment (mindfulness training) on the microbita composition?</p>
+<p>(Q2) can be viewed within a causal mediation framework: To what extent can we attribute the treatment effect to mediators (e.g., diet)?</p>
+<p>In the rest of this blog, we will formulate (Q2) with tools in causal inference, where (Q1) will be automatically included.</p>
+</div>
+<div id="problem-formulation-causal-mediation-framework" class="section level3">
+<h3>Problem Formulation: Causal Mediation Framework</h3>
+<p>We introduce notations:</p>
+<ul>
+<li><p><span class="math inline">\(T\in\{0, 1\}\)</span>: treatment indicator variable,</p></li>
+<li><p><span class="math inline">\(Y(t)\in\mathbb{N}^K\)</span>: potential taxa count profile with treatment <span class="math inline">\(t\in\{0,1\}\)</span>, and</p></li>
+<li><p><span class="math inline">\(K\)</span>: number of taxa.</p></li>
+</ul>
+<p>Then the <strong>average treatment effect</strong> can be defined as the difference in expected potential outcomes,
+<span class="math display">\[\begin{align*}
+    \mathbb{E}[Y(1)] - \mathbb{E}[Y(0)].
+\end{align*}\]</span></p>
+<p>For better understanding, mediation analysis adds an intermediate variable (mediator) to the causal path between treatment and outcome.</p>
+<p><img src="figures/dag.svg" style="display: block; margin: auto;" /></p>
+<p>It splits the treatment effect into two parts:</p>
+<ul>
+<li><p><strong>indirect effect</strong>: the effect that works through mediators (), and</p></li>
+<li><p><strong>direct effect</strong>: the effect unrelated to mediators.</p></li>
+</ul>
+<p>Let <span class="math inline">\(M(t&#39;)\)</span> be mediators as a function of treatment <span class="math inline">\(t&#39;\in\{0,1\}\)</span>, then the potential outcome becomes a function of both treatment <span class="math inline">\(T\)</span> and mediator <span class="math inline">\(M(t&#39;)\)</span>, denoted by <span class="math inline">\(Y(t, M(t&#39;))\)</span> .</p>
+<p>The average (total) treatment effect becomes
+<span class="math display">\[\begin{align*}
+    \mathbb{E}[Y(1, M(1))] - \mathbb{E}[Y(0, M(0))].
+\end{align*}\]</span></p>
+<p>In a randomized experiment, we can only observe the outcome where <span class="math inline">\(t=t&#39;\)</span> being either <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.</p>
+<p>But conceptually, we can ask <em>What If</em> questions answered by <span class="math inline">\(Y(t, M(t&#39;))\)</span>, even when <span class="math inline">\(t\not=t&#39;\)</span>.</p>
+<ul>
+<li><p>What if we intervene on mediator only? <span class="math inline">\(\to Y(0, M(1))\)</span>.</p></li>
+<li><p>What if we intervene with fixed mediator? =&gt; <span class="math inline">\(Y(1, M(0))\)</span>.</p></li>
+</ul>
+<p>We define indirect and direct effects <span class="math inline">\(\delta(t)\)</span> and <span class="math inline">\(\tau(t&#39;)\)</span> following <a href="https://doi.org/10.1037/a0020761">Imai et al (2010)</a>:</p>
+<p><span class="math display">\[\begin{align*}
+    \delta(t) &amp;= \mathbb{E}[Y(t, M(1))] - \mathbb{E}[Y(t, M(0))]\\
+     \tau(t&#39;) &amp;= \mathbb{E}[Y(1, M(t&#39;))] - \mathbb{E}[Y(0, M(t&#39;))]
+\end{align*}\]</span>
+for <span class="math inline">\(t, t&#39;\in \{0, 1\}\)</span>, where the expectation is taken over <span class="math inline">\(Y\)</span> given <span class="math inline">\(t\)</span> or <span class="math inline">\(t&#39;\)</span>.</p>
+<p>Further take average over <span class="math inline">\(t\)</span> and <span class="math inline">\(t&#39;\)</span>, we have the average direct and indirect effects.
+<span class="math display">\[\begin{align*}
+    \bar\delta &amp;= \mathbb{E}[\delta(T)]\\
+     \bar\tau &amp;= \mathbb{E}[\tau(T)].
+\end{align*}\]</span></p>
+<p>Our next steps include making proper assumptions, modeling, estimating, and evaluating. Blogs will be posted soon!</p>
+</div>
+<div id="takeaways" class="section level3">
+<h3>Takeaways</h3>
+<ol style="list-style-type: decimal">
+<li><p>W are interested in the causal effect of mindfulness intervention on microbiome, with intermediate variables in between.</p></li>
+<li><p>The statistical distillation is a causal mediation framework, which is not limited to this data analysis problem.</p></li>
+</ol>
+</div>
+<div id="reference" class="section level3">
+<h3>Reference</h3>
+<p><a href="https://doi.org/10.1016/j.tins.2013.01.005">Gut-brain axis: how the microbiome influences anxiety and depression</a></p>
+<p><a href="https://doi.org/10.1002/14651858.CD011723.pub2">Mindfulness‐based interventions for substance use disorders</a></p>
+<p><a href="https://doi.org/10.1037/a0020761">A general approach to causal mediation analysis</a></p>
+<p>Plots that have been used in the illustration: <a href="https://www.livescience.com/why-a-balanced-diet-is-important">1</a>, <a href="https://www.spd.org.sg/are_you_getting_quality_sleep/">2</a>, <a href="https://angioedemanews.com/news/test-of-c1-inhibitor-activity-on-dried-blood-spots-may-be-simple-way-to-diagnose-hae/">3</a>, <a href="https://www.verywellmind.com/is-it-normal-anxiety-or-an-anxiety-disorder-2584401">4</a>.</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This analysis is a joint work with Hanying Jiang, mentored by Prof. Kris Sankaran. Some descriptions and illustrative plots are inspired by recent talks of Prof. Kris Sankaran and Dr. Margaret Thairu, and course lectures delivered by Prof. Amy Cochran.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Links to the plots are provided in the reference.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
