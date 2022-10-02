@@ -7,7 +7,7 @@ date: "2022-10-01"
 draft: false
 excerpt: Does mindfulness training affect microbiome? If so, how? To answer these questions, we motivate and formulate these problems in a causal mediation framework. 
 subtitle: -- A Causal Mediation Perspective
-title: Mindfuness and Microbiome
+title: Mindfulness and Microbiome
 ---
 
 Does mindfulness training affect microbiome? If so, how? In this blog, we motivate and formulate these problems in a causal mediation framework ^[This analysis is a joint work with Hanying Jiang, mentored by Prof. Kris Sankaran. Some descriptions and illustrative plots are inspired by recent talks of Prof. Kris Sankaran and Dr. Margaret Thairu, and course lectures delivered by Prof. Amy Cochran.].
