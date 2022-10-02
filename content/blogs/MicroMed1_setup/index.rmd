@@ -24,7 +24,7 @@ Putting two pieces together, a natural question comes up:
 
 (Q1) Does mindfulness training affect microbiota composition?
 
-Thinking deeper, we have a follow-up question:
+Thinking deeper, we may ask:
 
 (Q2) If an effect exists, how does it work? For instance, does mindfulness training affect microbiome by changing people's diet habits?
 
@@ -71,7 +71,7 @@ include_graphics("./figures/dag.svg")
 
 It splits the treatment effect into two parts: 
 
-- **indirect effect**: the effect that works through mediators (), and 
+- **indirect effect**: the effect that works through mediators, and 
 
 - **direct effect**: the effect unrelated to mediators. 
 
