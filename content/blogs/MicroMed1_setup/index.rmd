@@ -5,7 +5,7 @@ categories:
 - Microbiome
 date: "2022-10-01"
 draft: false
-excerpt: Does mindfulness training affect microbiome? If so, how? In this blog, we motivate and formulate these problems in a causal mediation framework. 
+excerpt: Does mindfulness training affect microbiome? If so, how? To answer these questions, we motivate and formulate these problems in a causal mediation framework. 
 subtitle: -- A Causal Mediation Perspective
 title: Mindfuness and Microbiome
 ---
