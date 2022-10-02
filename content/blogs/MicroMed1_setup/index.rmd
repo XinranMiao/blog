@@ -16,17 +16,17 @@ Does mindfulness training affect microbiome? If so, how? In this blog, we motiva
 ### Motivation
 
 The gut microbiome refers to the community of bacteria and their genetic material living in the gut.
-They have documented relationships with human health and diseases. One with emerging attention is the gut-brain axis: researches have demonstrated the association between microbiota composition and stress / anxiety related behavior.
+They have documented relationships with human health and diseases. One with emerging attention is the **gut-brain axis**: researches have demonstrated the association between microbiota composition and stress / anxiety related behavior.
 
-On the other hand, recent studies exhibit an effect of mindfulness-based intervention on anxiety and depression.
+On the other hand, recent studies exhibit an effect of **mindfulness-based intervention** on anxiety and depression.
 
 Putting two pieces together, a natural question comes up:
 
-(Q1) Does mindfulness training affect microbiota composition?
+**(Q1) Does mindfulness training affect microbiota composition?**
 
 Thinking deeper, we may ask:
 
-(Q2) If an effect exists, how does it work? For instance, does mindfulness training affect microbiome by changing people's diet habits?
+**(Q2) If an effect exists, how does it work?** For instance, does mindfulness training affect microbiome by changing people's diet habits?
 
 The figure below provides an illustration ^[Links to the plots are provided in the reference.].
 ```{r echo=FALSE, fig.align="center", fig.width=20, fig.height=20}
@@ -87,9 +87,9 @@ In a randomized experiment, we can only observe the outcome where $t=t'$ being e
 
 But conceptually, we can ask *What If* questions answered by $Y(t, M(t'))$, even when $t\not=t'$.
 
-- What if we intervene on mediator only? $\to Y(0, M(1))$.
+- Q: hat if we intervene on mediator only? A: $Y(0, M(1))$.
 
-- What if we intervene with fixed mediator? => $Y(1, M(0))$.
+- Q: What if we intervene with fixed mediator? A: $Y(1, M(0))$.
 
 
 
@@ -114,7 +114,7 @@ Further take average over $t$ and $t'$, we have the average direct and indirect 
 Our next steps include making proper assumptions, modeling, estimating, and evaluating. Blogs will be posted soon!
 
 ### Takeaways
-1. W are interested in the causal effect of mindfulness intervention on microbiome, with intermediate variables in between.
+1. We are interested in the causal effect of mindfulness intervention on microbiome, with intermediate variables in between.
 
 2. The statistical distillation is a causal mediation framework, which is not limited to this data analysis problem.
 
