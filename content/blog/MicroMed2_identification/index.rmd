@@ -8,8 +8,13 @@ excerpt: We demonstrate the identificability of natural mediation effects proved
 subtitle: 
 title: Identifying Causal Mediation Effects
 ---
-x
 In this blog, we demonstrate the identificability of natural mediation effects proved in [Imai, K., Keele, L. and Yamamoto, T.(2010)](https://doi.org/10.1214/10-STS321). Please check this paper if you are interested!
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+
 
 
 ### Set-up
