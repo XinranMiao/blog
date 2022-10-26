@@ -7,7 +7,7 @@ cascade:
   show_post_date: true
   sidebar:
     show_sidebar_adunit: false
-    #text_link_label: View recent posts
+    #text_link_label: 
     text_link_url: /blog/
 description: "Constructed for the course project in MATH 888 (fall 2022)."
 #layout: list-sidebar
