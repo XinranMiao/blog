@@ -10,10 +10,10 @@ subtitle: -- A Causal Mediation Perspective
 title: Mindfulness and Microbiome
 ---
 
-Does mindfulness training affect microbiome? If so, how? In this blog, we motivate and formulate these problems in a causal mediation framework ^[This analysis is a joint work with Hanying Jiang, mentored by Prof. Kris Sankaran. Some descriptions and illustrative plots are inspired by recent talks of Prof. Kris Sankaran and Dr. Margaret Thairu, and course lectures delivered by Prof. Amy Cochran.].
+Does mindfulness training affect microbiome? If so, how? In this blog, we motivate and formulate these problems in a causal mediation framework ^[This analysis is a joint work with Hanying Jiang, mentored by Prof. Kris Sankaran. Some descriptions and illustrative plots are inspired by recent talks of Prof. Kris Sankaran and Dr. Margaret Thairu, and course lectures delivered by Prof. Amy Cochran.] following the proof in [Imai, K., Keele, L. and Yamamoto, T.(2010)](https://doi.org/10.1214/10-STS321).
 
 
-### Motivation
+## Motivation
 
 The gut microbiome refers to the community of bacteria and their genetic material living in the gut.
 They have documented relationships with human health and diseases. One with emerging attention is the **gut-brain axis**: researches have demonstrated the association between microbiota composition and stress / anxiety related behavior.
@@ -94,31 +94,137 @@ But conceptually, we can ask *What If* questions answered by $Y(t, M(t'))$, even
 
 
 
-We define indirect and direct effects $\delta(t)$ and $\tau(t')$ following [Imai et al (2010)](https://doi.org/10.1037/a0020761):
+We will define indirect and direct effects $\delta(t)$ and $\tau(t')$ following [Imai et al (2010)](https://doi.org/10.1037/a0020761). Before we get into this, let's first introduce the observed variables.
 
 
 
+## Identification
+
+For generality, we consider the identifiability of natural direct / indirect effects without specification of data types. The proof follows from Appendix in [Imai, K., Keele, L. and Yamamoto, T.(2010)](https://doi.org/10.1214/10-STS321).
+
+### Set-up
+Consider a random sample of size $n$, where we observe $(X_i, T_i,M_i, Y_i)$ for each sample $i=1,\cdots,n$, where
+
+> * $X_i$ : pretreatment covariate with support $\mathcal{X}$
+> * $T_i$ : binary treatment variable,
+> * $M_i$ : mediator variable with support $\mathcal{M}$,
+> * $Y_i$ : outcome variable with support $\mathcal{Y}$.
+
+In order to examine how treatment affect the outcome, we split the treatment effect into two parts depending on whether it works through the mediator. We control for measured confounders $X$.
+
+For each sample $i$, we define its natural indirect effect 
+
+$$\delta_i(t) = Y_i(t,M_i(1)) - Y_i(t,M_i(0))$$
+and natural direct effect.
+
+$$\zeta_i(t) = Y_i(1,M_i(t) - Y_i(0,M_i(t)).$$
+
+Our interest are the average natural indirect effect
+
+\begin{equation} 
+  \bar\delta(t) = \mathbb{E}[Y_i(t,M_i(1)) - Y_i(t,M_i(0))]
+  (\#eq:defin)
+\end{equation} 
+
+
+
+and the average natural direct effect 
+\begin{equation} 
+  \bar\zeta(t) = \mathbb{E}[Y(1, M(t)) - Y(0, M(t))]
+  (\#eq:defdi)
+\end{equation} 
+
+with $t=0,1$. 
+
+
+
+
+         
+
+### Assumptions
+
+For $t,t'=0,1$ and any $x\in\mathcal{X}$, we assume
+
+\begin{equation} 
+  \{Y_i(t',m), M_i(t)\}\perp T_i\mid X_i=x
+  (\#eq:seq1)
+\end{equation} 
+
+\begin{equation}
+ Y_i(t'm) \perp M_i(t)\mid T_i=t, X_i=x
+   (\#eq:seq2)
+\end{equation}
+
+\begin{equation}
+\text{Pr}(T_i=t\mid X_i=x)>0, \mathbb{P}(M_i(t)=m\mid T_i=t,X_i=x)>0
+   (\#eq:positivity)
+\end{equation}
+
+
+
+
+
+
+
+
+### Identifiability
+::: {.theorem}
+${}$
+Under the above sequential ignorability assumption, the average natural direct and indirect effects can be identifed as follows for $t=0,1$.
+
+$$\bar\delta(t) = \iint\mathbb{E}(Y_i\mid M_i=m, T_i=t,X_i=x)\{dF_{M_i\mid T_i=1,X_i=x}(m) - dF_{M|i\mid T_1=0,X_i=x}(m)\}dF_{X_i}(x)$$
+
+$$\bar\zeta(t) = \iint\{\mathbb{E}(Y_i\mid M_i=m,T_i=1,X_i=x)-\mathbb{E}(Y_i\mid M_i=m,T_i=0,X_i=x)\}dF_{M_i\mid T_i=t,X_i=x}(m)dF_{X_i}(x),$$
+where $F_Z(\cdot)$ and $F_{X\mid W}(\cdot)$ represent the distribution function of a random variable $Z$ and the conditional ditribution function of $Z$ given $W$.
+\hspace{12.5cm} 
+:::
+
+
+
+::: {.proof}
+${}$
+Notice that the sequential ignorability assumption implies
+
+
+
+\begin{equation} 
+  Y_i(t',m)\perp T_i\mid M_i(t)=m', X_i=x
+  (\#eq:cond)
+\end{equation} 
+
+
+
+For any $t,t'=0,1$, we have 
 \begin{align*}
-    \delta(t) &= \mathbb{E}[Y(t, M(1))] - \mathbb{E}[Y(t, M(0))]\\
-     \tau(t') &= \mathbb{E}[Y(1, M(t'))] - \mathbb{E}[Y(0, M(t'))]
+\mathbb{E}(Y_i(t, M_i(t'))\mid X_i=x) &= \int\mathbb{E}(Y_i(t,m)\mid M_i(t')=m, X_i=x)dF_{M_i(t')\mid X_i=x}(m) \\
+&=\int \mathbb{E}(Y_i(t,m)\mid M_i(t')=m,T_i=t',X_i=x)dF_{M_i(t')\mid X_i=x}(m)\\
+&= \int\mathbb{E}(Y_i(t,m)\mid T_i=t', X_i=x)dF_{M_i(t')\mid X_i=x}(m)\\
+&=\int\mathbb{E}(Y_i(t,m)\mid T_i=t, X_i=x)dF_{M_i(t')\mid T_i=t',X_i=x}(m)\\
+&=\int\mathbb{E}(Y_i(t,m)\mid M_i(t)=m,T_i=t,X_i=x)dF_{M_i(t')\mid T_i=t',X_i=x}(m)\\
+&=\int \mathbb{E}(Y_i\mid M_i=m, T_i=t, X_i=x)dF_{M_i(t')\mid T_i=t',X_i=x}(m)\\
+&=\int\mathbb{E}(Y_i\mid M_i=m, T_i=t,X_i=x)dF_{M_i\mid T_i=t',X_i=x}(m),
 \end{align*}
-for $t, t'\in \{0, 1\}$, where the expectation is taken over $Y$ given $t$ or $t'$. 
+where the second equality follows from \@ref(eq:cond), the third and fifth equalities follow from \@ref(eq:seq1), the fourth and last equalities follow from \@ref(eq:seq2), and the sixth equality follows from the fact that $M_i=M_i(T_i)$ and $Y_i=Y_i(T_i, M_i(T_i))$.
 
-
-Further take average over $t$ and $t'$, we have the average direct and indirect effects.
+Therefore, we have 
 \begin{align*}
-    \bar\delta &= \mathbb{E}[\delta(T)]\\
-     \bar\tau &= \mathbb{E}[\tau(T)].
+\mathbb{E}(Y_i(t,M_i(t')))=\iint \mathbb{E}(Y_i\mid M_i=m,T_i=t,X_i=x)dF_{M_i\mid T_i=t',X_i=x}(m)dF_{X_i}(x)
 \end{align*}
+Identifiability follows by plugging in the definition of average natural indirect and direct effects defined in \@ref(eq:defin) and \@ref(eq:defdi).
+$\hspace{12.5cm} \square$
+:::
 
-Our next steps include making proper assumptions, modeling, estimating, and evaluating. Blogs will be posted soon!
 
-### Takeaways
+## Takeaways
+
 1. We are interested in the causal effect of mindfulness intervention on microbiome, with intermediate variables in between.
 
 2. The statistical distillation is a causal mediation framework, which is not limited to this data analysis problem.
 
-### Reference
+3. The parameters can be identified from observed data with sequential ignorability assumptions
+
+
+## Reference
 
 
 
@@ -127,5 +233,6 @@ Our next steps include making proper assumptions, modeling, estimating, and eval
 [Mindfulness‐based interventions for substance use disorders](https://doi.org/10.1002/14651858.CD011723.pub2)
 
 [A general approach to causal mediation analysis](https://doi.org/10.1037/a0020761)
+[Identification, Inference and Sensitivity Analysis for Causal Mediation Effects](https://doi.org/10.1214/10-STS321)
 
 Plots that have been used in the illustration: [1](https://www.livescience.com/why-a-balanced-diet-is-important), [2](https://www.spd.org.sg/are_you_getting_quality_sleep/), [3](https://angioedemanews.com/news/test-of-c1-inhibitor-activity-on-dried-blood-spots-may-be-simple-way-to-diagnose-hae/), [4](https://www.verywellmind.com/is-it-normal-anxiety-or-an-anxiety-disorder-2584401).
