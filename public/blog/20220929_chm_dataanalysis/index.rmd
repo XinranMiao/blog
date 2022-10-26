@@ -1,0 +1,19 @@
+---
+author: Xinran Miao
+categories:
+- Causal inference
+- Microbiome
+date: "2022-09-29"
+draft: false
+excerpt: 
+subtitle: 
+title: An application
+---
+## Study Design
+
+## Model Revisit
+
+## Results
+### Goodness of FIt
+### Estimation
+### Interpretation

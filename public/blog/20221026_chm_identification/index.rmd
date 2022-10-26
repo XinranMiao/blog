@@ -1,0 +1,16 @@
+---
+author: Xinran Miao
+categories:
+- Causal inference
+- Microbiome
+date: "2022-09-27"
+draft: false
+excerpt: 
+subtitle: 
+title: Identification in Microbiome Mediation Analysis
+---
+## Problem recap
+
+## Assumptions and identification
+
+## Justifications

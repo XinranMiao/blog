@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xinran Miao</title>
+    <link>https://xinranmiao.rbind.io/</link>
+    <description>Recent content on Xinran Miao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://xinranmiao.rbind.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mindfulness and Microbiome</title>
+      <link>https://xinranmiao.rbind.io/blog/micromed1_setup/</link>
+      <pubDate>Sat, 01 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://xinranmiao.rbind.io/blog/micromed1_setup/</guid>
+      <description>Does mindfulness training affect microbiome? If so, how? In this blog, we motivate and formulate these problems in a causal mediation framework 1.
+Motivation The gut microbiome refers to the community of bacteria and their genetic material living in the gut. They have documented relationships with human health and diseases. One with emerging attention is the gut-brain axis: researches have demonstrated the association between microbiota composition and stress / anxiety related behavior.</description>
+    </item>
+    
+    <item>
+      <title>An application</title>
+      <link>https://xinranmiao.rbind.io/blog/20220929_chm_dataanalysis/</link>
+      <pubDate>Thu, 29 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://xinranmiao.rbind.io/blog/20220929_chm_dataanalysis/</guid>
+      <description> Study Design Model Revisit Results Goodness of FIt Estimation Interpretation </description>
+    </item>
+    
+    <item>
+      <title>Identification in Microbiome Mediation Analysis</title>
+      <link>https://xinranmiao.rbind.io/blog/20221026_chm_identification/</link>
+      <pubDate>Tue, 27 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://xinranmiao.rbind.io/blog/20221026_chm_identification/</guid>
+      <description> Problem recap Assumptions and identification Justifications </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://xinranmiao.rbind.io/about/header/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xinranmiao.rbind.io/about/header/</guid>
+      <description>This website is created for MATH 888 (causal inference) course project in fall 2022.
+Causal inference is an important area in statistics, but I&amp;rsquo;ve never taken any related courses yet. I&amp;rsquo;m more than excited that Prof. Amy Cochran is providing this course, and I can&amp;rsquo;t wait to share my project with you!
+For causal inference, I&amp;rsquo;m interested in causal mediation analysis and sensitivity analysis.
+Please contact me at xmiao27@wisc.edu.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://xinranmiao.rbind.io/about/main/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xinranmiao.rbind.io/about/main/</guid>
+      <description>Please contact me at xmiao27@wisc.edu.</description>
+    </item>
+    
+    <item>
+      <title>Contributors</title>
+      <link>https://xinranmiao.rbind.io/contributors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xinranmiao.rbind.io/contributors/</guid>
+      <description>Thank you to all the folks who have contributed both technical and creative skills to this project:
+Desirée De Leon 🦒 (designed 5 of the custom color themes, made illustrations for the workshop, and provided general aesthetic feedback along the way)
+Garrick Aden-Buie 🧙‍♀️ (debugged headroom.js and lent his panelset.js code to the theme)
+Allison Horst 🐕 (awesome illustrations of campfires, seedlings, and evergreens, as well as my R Markdown hedgehog mascot 🦔)</description>
+    </item>
+    
+    <item>
+      <title>License</title>
+      <link>https://xinranmiao.rbind.io/license/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xinranmiao.rbind.io/license/</guid>
+      <description>My blog posts are released under a Creative Commons Attribution-ShareAlike 4.0 International License.</description>
+    </item>
+    
+  </channel>
+</rss>

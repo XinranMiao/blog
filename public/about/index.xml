@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on Xinran Miao</title>
+    <link>https://xinranmiao.rbind.io/about/</link>
+    <description>Recent content in About on Xinran Miao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="https://xinranmiao.rbind.io/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://xinranmiao.rbind.io/about/header/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xinranmiao.rbind.io/about/header/</guid>
+      <description>This website is created for MATH 888 (causal inference) course project in fall 2022.
+Causal inference is an important area in statistics, but I&amp;rsquo;ve never taken any related courses yet. I&amp;rsquo;m more than excited that Prof. Amy Cochran is providing this course, and I can&amp;rsquo;t wait to share my project with you!
+For causal inference, I&amp;rsquo;m interested in causal mediation analysis and sensitivity analysis.
+Please contact me at xmiao27@wisc.edu.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://xinranmiao.rbind.io/about/main/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://xinranmiao.rbind.io/about/main/</guid>
+      <description>Please contact me at xmiao27@wisc.edu.</description>
+    </item>
+    
+  </channel>
+</rss>
