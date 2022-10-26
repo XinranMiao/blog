@@ -1,0 +1,100 @@
+---
+author: Xinran Miao
+categories:
+- Causal inference
+- Microbiome
+date: "2022-10-27"
+draft: false
+excerpt: We demonstrate the identificability of natural mediation effects proved by [Imai, K., Keele, L. and Yamamoto, T.(2010)](https://doi.org/10.1214/10-STS321)
+subtitle: 
+title: Identifyging Causal Mediation Effects
+---
+
+
+
+<p>In this blog, we demonstrate the identificability of natural mediation effects proved in <a href="https://doi.org/10.1214/10-STS321">Imai, K., Keele, L. and Yamamoto, T.(2010)</a>. Please check this paper if you are interested!</p>
+<div id="set-up" class="section level3">
+<h3>Set-up</h3>
+<p>Consider a random sample of size <span class="math inline">\(n\)</span>, where we observe <span class="math inline">\((X_i, T_i,M_i, Y_i)\)</span> for each sample <span class="math inline">\(i=1,\cdots,n\)</span>, where</p>
+<blockquote>
+<ul>
+<li><span class="math inline">\(X_i\)</span> : pretreatment covariate with support <span class="math inline">\(\mathcal{X}\)</span></li>
+<li><span class="math inline">\(T_i\)</span> : binary treatment variable,</li>
+<li><span class="math inline">\(M_i\)</span> : mediator variable with support <span class="math inline">\(\mathcal{M}\)</span>,</li>
+<li><span class="math inline">\(Y_i\)</span> : outcome variable with support <span class="math inline">\(\mathcal{Y}\)</span>.</li>
+</ul>
+</blockquote>
+<p>In order to examine how treatment affect the outcome, we split the treatment effect into two parts depending on whether it works through the mediator. We control for measured confounders <span class="math inline">\(X\)</span>.</p>
+<p>For each sample <span class="math inline">\(i\)</span>, we define its natural indirect effect</p>
+<p><span class="math display">\[\delta_i(t) = Y_i(t,M_i(1)) - Y_i(t,M_i(0))\]</span>
+and natural direct effect.</p>
+<p><span class="math display">\[\zeta_i(t) = Y_i(1,M_i(t) - Y_i(0,M_i(t)).\]</span></p>
+<p>Our interest are the average natural indirect effect</p>
+<p><span class="math display" id="eq:defin">\[\begin{equation} 
+  \bar\delta(t) = \mathbb{E}[Y_i(t,M_i(1)) - Y_i(t,M_i(0))]
+  \tag{1}
+\end{equation}\]</span></p>
+<p>and the average natural direct effect
+<span class="math display" id="eq:defdi">\[\begin{equation} 
+  \bar\zeta(t) = \mathbb{E}[Y(1, M(t)) - Y(0, M(t))]
+  \tag{2}
+\end{equation}\]</span></p>
+<p>with <span class="math inline">\(t=0,1\)</span>.</p>
+</div>
+<div id="assumptions" class="section level3">
+<h3>Assumptions</h3>
+<p>For <span class="math inline">\(t,t&#39;=0,1\)</span> and any <span class="math inline">\(x\in\mathcal{X}\)</span>, we assume</p>
+<p><span class="math display" id="eq:seq1">\[\begin{equation} 
+  \{Y_i(t&#39;,m), M_i(t)\}\perp T_i\mid X_i=x
+  \tag{3}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:seq2">\[\begin{equation}
+ Y_i(t&#39;m) \perp M_i(t)\mid T_i=t, X_i=x
+   \tag{4}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:positivity">\[\begin{equation}
+\text{Pr}(T_i=t\mid X_i=x)&gt;0, \mathbb{P}(M_i(t)=m\mid T_i=t,X_i=x)&gt;0
+   \tag{5}
+\end{equation}\]</span></p>
+</div>
+<div id="identifiability" class="section level3">
+<h3>Identifiability</h3>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-1" class="theorem"><strong>Theorem 1  </strong></span><span class="math inline">\({}\)</span>
+Under the above sequential ignorability assumption, the average natural direct and indirect effects can be identifed as follows for <span class="math inline">\(t=0,1\)</span>.</p>
+<p><span class="math display">\[\bar\delta(t) = \iint\mathbb{E}(Y_i\mid M_i=m, T_i=t,X_i=x)\{dF_{M_i\mid T_i=1,X_i=x}(m) - dF_{M|i\mid T_1=0,X_i=x}(m)\}dF_{X_i}(x)\]</span></p>
+<p><span class="math display">\[\bar\zeta(t) = \iint\{\mathbb{E}(Y_i\mid M_i=m,T_i=1,X_i=x)-\mathbb{E}(Y_i\mid M_i=m,T_i=0,X_i=x)\}dF_{M_i\mid T_i=t,X_i=x}(m)dF_{X_i}(x),\]</span>
+where <span class="math inline">\(F_Z(\cdot)\)</span> and <span class="math inline">\(F_{X\mid W}(\cdot)\)</span> represent the distribution function of a random variable <span class="math inline">\(Z\)</span> and the conditional ditribution function of <span class="math inline">\(Z\)</span> given <span class="math inline">\(W\)</span>.
+</p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-2" class="proof"><em>Proof</em>. </span><span class="math inline">\({}\)</span>
+Notice that the sequential ignorability assumption implies</p>
+<p><span class="math display" id="eq:cond">\[\begin{equation} 
+  Y_i(t&#39;,m)\perp T_i\mid M_i(t)=m&#39;, X_i=x
+  \tag{6}
+\end{equation}\]</span></p>
+<p>For any <span class="math inline">\(t,t&#39;=0,1\)</span>, we have
+<span class="math display">\[\begin{align*}
+\mathbb{E}(Y_i(t, M_i(t&#39;))\mid X_i=x) &amp;= \int\mathbb{E}(Y_i(t,m)\mid M_i(t&#39;)=m, X_i=x)dF_{M_i(t&#39;)\mid X_i=x}(m) \\
+&amp;=\int \mathbb{E}(Y_i(t,m)\mid M_i(t&#39;)=m,T_i=t&#39;,X_i=x)dF_{M_i(t&#39;)\mid X_i=x}(m)\\
+&amp;= \int\mathbb{E}(Y_i(t,m)\mid T_i=t&#39;, X_i=x)dF_{M_i(t&#39;)\mid X_i=x}(m)\\
+&amp;=\int\mathbb{E}(Y_i(t,m)\mid T_i=t, X_i=x)dF_{M_i(t&#39;)\mid T_i=t&#39;,X_i=x}(m)\\
+&amp;=\int\mathbb{E}(Y_i(t,m)\mid M_i(t)=m,T_i=t,X_i=x)dF_{M_i(t&#39;)\mid T_i=t&#39;,X_i=x}(m)\\
+&amp;=\int \mathbb{E}(Y_i\mid M_i=m, T_i=t, X_i=x)dF_{M_i(t&#39;)\mid T_i=t&#39;,X_i=x}(m)\\
+&amp;=\int\mathbb{E}(Y_i\mid M_i=m, T_i=t,X_i=x)dF_{M_i\mid T_i=t&#39;,X_i=x}(m),
+\end{align*}\]</span>
+where the second equality follows from <a href="#eq:cond">(6)</a>, the third and fifth equalities follow from <a href="#eq:seq1">(3)</a>, the fourth and last equalities follow from <a href="#eq:seq2">(4)</a>, and the sixth equality follows from the fact that <span class="math inline">\(M_i=M_i(T_i)\)</span> and <span class="math inline">\(Y_i=Y_i(T_i, M_i(T_i))\)</span>.</p>
+<p>Therefore, we have
+<span class="math display">\[\begin{align*}
+\mathbb{E}(Y_i(t,M_i(t&#39;)))=\iint \mathbb{E}(Y_i\mid M_i=m,T_i=t,X_i=x)dF_{M_i\mid T_i=t&#39;,X_i=x}(m)dF_{X_i}(x)
+\end{align*}\]</span>
+Identifiability follows by plugging in the definition of average natural indirect and direct effects defined in <a href="#eq:defin">(1)</a> and <a href="#eq:defdi">(2)</a>.
+<span class="math inline">\(\hspace{12.5cm} \square\)</span></p>
+</div>
+</div>
+<div id="reference" class="section level3">
+<h3>Reference</h3>
+<p><a href="https://doi.org/10.1037/a0020761">A general approach to causal mediation analysis</a></p>
+<p><a href="https://doi.org/10.1214/10-STS321">Identification, Inference and Sensitivity Analysis for Causal Mediation Effects</a></p>
+</div>
