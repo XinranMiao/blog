@@ -1,0 +1,12 @@
+---
+author: Xinran Miao
+categories:
+- Causal inference
+- Microbiome
+date: "2022-11-15"
+draft: false
+excerpt: Does mindfulness training affect microbiome? If so, how? To answer these questions, we motivate and formulate these problems in a causal mediation framework. 
+subtitle: -- A Causal Mediation Perspective
+title: Logistic Normal Multinomial
+---
+
