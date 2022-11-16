@@ -6,8 +6,8 @@ categories:
 date: "2022-11-15"
 draft: false
 excerpt: We adapt the Logistic Normal Multinomial model into the mediation framework, and evaluate its power on semi-synthetic datasets.
-subtitle: -- a generalized Logistic Normal Multinomial.
-title: Mediation Analysis on the Microbiome Outcome model
+subtitle: -- a generalized Logistic Normal Multinomial model
+title: Mediation Analysis on the Microbiome Outcome
 ---
 This analysis is developed with Hanying Jiang and Prof. Kris Sankaran.
 
