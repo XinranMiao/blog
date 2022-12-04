@@ -1,0 +1,51 @@
+---
+author: Xinran Miao
+categories:
+- Causal inference
+- Microbiome
+- Sensitivity analysis in mediation analysis
+date: "2022-12-04"
+draft: false
+excerpt: We discuss the sensitivity analysis for mediation models.
+#subtitle: --
+title: Sensitivity analysis
+---
+
+
+
+<p>Following <a href="https://doi.org/10.1214/10-STS321">Imai, K., Keele, L. and Yamamoto, T.(2010)</a>, we discuss the sensitivity analysis in mediation models.</p>
+<div id="recall-mediation-models" class="section level2">
+<h2>Recall: mediation models</h2>
+<p>For unit <span class="math inline">\(i\)</span> in a random sample of size <span class="math inline">\(n\)</span>, we denote <span class="math inline">\(T_i\in\{0,1\}\)</span> as the treatment indicator, <span class="math inline">\(X_i\)</span> is pre-treatment covariate, <span class="math inline">\(M_i\)</span> is the mediator, <span class="math inline">\(\mu_i\in\mathcal{R}^{K}\)</span> is transformed from an compositional outcome with <span class="math inline">\(K\)</span> entries. Then the mediation model assumes <a href="#eq:lnmm">(1)</a> and <a href="#eq:lnmmu">(2)</a>, where <span class="math inline">\(\alpha\)</span>’s and <span class="math inline">\(\beta\)</span>’s are parameters, <span class="math inline">\(\varepsilon_i^m\)</span> and <span class="math inline">\(\varepsilon^i_{\mu}\)</span> are errors.</p>
+<p><span class="math display" id="eq:lnmm">\[\begin{equation} 
+m_i = \alpha_0 + \alpha_T T_i + \alpha_X^TX_i + \varepsilon_i^{m}
+  \tag{1}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:lnmmu">\[\begin{equation}
+\mu_{i} = \beta_0 + \beta_T T_i + \beta_X^TX_i + \beta_M^TM_i + \varepsilon_i^{\mu}
+  \tag{2}
+\end{equation}\]</span></p>
+</div>
+<div id="sensitivity-in-terms-of-correlations" class="section level2">
+<h2>Sensitivity in terms of correlations</h2>
+<p>Let <span class="math inline">\(U_i\)</span> be unmeasured confounder, then when the sequential ignorability assumption is violated, we can rewrite error terms for taxon <span class="math inline">\(k\)</span> as</p>
+<p><span class="math display">\[\begin{align*}
+\varepsilon_{ik}^{\mu} &amp;= \lambda^{\mu}_k U_{ik} + \tilde{\varepsilon}_{ik}^{\mu}\\
+\varepsilon_{ik}^m &amp;= \lambda^m_k U_{ik} + \tilde{\varepsilon}_{ik}^m,
+\end{align*}\]</span>
+where <span class="math inline">\(\text{Cov}(\tilde{\varepsilon}_{ik}^{\mu}, \tilde{\varepsilon}_{ik}^{m})=0\)</span>, <span class="math inline">\(\lambda_{k}^{\mu}\)</span> and <span class="math inline">\(\lambda_k^m\)</span> are unknown parameters.</p>
+<p>We define the sensitivity parameter <span class="math inline">\(\rho_k\)</span> to be their correlation</p>
+<p><span class="math display" id="eq:rho">\[\begin{equation}
+\rho_k = \text{Cor}(\varepsilon_{ik}^{\mu},\varepsilon_{ik}^m),
+  \tag{3}
+\end{equation}\]</span></p>
+<p>which after some calculation, can be formulated as</p>
+<p><span class="math display">\[\begin{align*}
+\rho_k &amp;= \text{sgn}(\lambda^{\mu}_k\lambda_k^m)\left\{1-\dfrac{\text{var}(\tilde{\varepsilon_{ik}^m})}{\text{var}(\tilde{\epsilon}_{ik}^m)}\right\}\left\{1-\dfrac{\text{var}(\tilde{\varepsilon}_{ik}^{\mu})}{\text{var}(\tilde{\epsilon}_{ik}^{\mu})}\right\}.
+\end{align*}\]</span></p>
+</div>
+<div id="reference" class="section level2">
+<h2>Reference</h2>
+<p><a href="https://doi.org/10.1037/a0020761">A general approach to causal mediation analysis</a>
+<a href="https://doi.org/10.1214/10-STS321">Identification, Inference and Sensitivity Analysis for Causal Mediation Effects</a></p>
+</div>

@@ -1,0 +1,58 @@
+---
+author: Xinran Miao
+categories:
+- Causal inference
+- Microbiome
+- Sensitivity analysis in mediation analysis
+date: "2022-12-04"
+draft: false
+excerpt: We discuss the sensitivity analysis for mediation models.
+#subtitle: --
+title: Sensitivity analysis
+---
+
+Following [Imai, K., Keele, L. and Yamamoto, T.(2010)](https://doi.org/10.1214/10-STS321), we discuss the sensitivity analysis in mediation models.
+
+## Recall: mediation models
+For unit $i$ in a random sample of size $n$, we denote $T_i\in\{0,1\}$ as the treatment indicator, $X_i$ is pre-treatment covariate, $M_i$ is the mediator, $\mu_i\in\mathcal{R}^{K}$ is transformed from an compositional outcome with $K$ entries. Then the mediation model assumes \@ref(eq:lnmm) and \@ref(eq:lnmmu), where $\alpha$'s and $\beta$'s are parameters, $\varepsilon_i^m$ and $\varepsilon^i_{\mu}$ are errors.
+
+\begin{equation} 
+m_i = \alpha_0 + \alpha_T T_i + \alpha_X^TX_i + \varepsilon_i^{m}
+  (\#eq:lnmm)
+\end{equation} 
+
+
+\begin{equation}
+\mu_{i} = \beta_0 + \beta_T T_i + \beta_X^TX_i + \beta_M^TM_i + \varepsilon_i^{\mu}
+  (\#eq:lnmmu)
+\end{equation}
+
+## Sensitivity in terms of correlations
+
+Let $U_i$ be unmeasured confounder, then when the sequential ignorability assumption is violated, we can rewrite error terms for taxon $k$ as  
+
+\begin{align*}
+\varepsilon_{ik}^{\mu} &= \lambda^{\mu}_k U_{ik} + \tilde{\varepsilon}_{ik}^{\mu}\\
+\varepsilon_{ik}^m &= \lambda^m_k U_{ik} + \tilde{\varepsilon}_{ik}^m,
+\end{align*}
+where $\text{Cov}(\tilde{\varepsilon}_{ik}^{\mu}, \tilde{\varepsilon}_{ik}^{m})=0$, $\lambda_{k}^{\mu}$ and $\lambda_k^m$ are unknown parameters.
+
+We define the sensitivity parameter $\rho_k$ to be their correlation
+
+\begin{equation}
+\rho_k = \text{Cor}(\varepsilon_{ik}^{\mu},\varepsilon_{ik}^m),
+  (\#eq:rho)
+\end{equation}
+
+which after some calculation, can be formulated as 
+
+\begin{align*}
+\rho_k &= \text{sgn}(\lambda^{\mu}_k\lambda_k^m)\left\{1-\dfrac{\text{var}(\tilde{\varepsilon_{ik}^m})}{\text{var}(\tilde{\epsilon}_{ik}^m)}\right\}\left\{1-\dfrac{\text{var}(\tilde{\varepsilon}_{ik}^{\mu})}{\text{var}(\tilde{\epsilon}_{ik}^{\mu})}\right\}.
+\end{align*}
+
+
+
+## Reference
+
+[A general approach to causal mediation analysis](https://doi.org/10.1037/a0020761)
+[Identification, Inference and Sensitivity Analysis for Causal Mediation Effects](https://doi.org/10.1214/10-STS321)
