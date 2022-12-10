@@ -1,0 +1,14 @@
+---
+author: Xinran Miao
+categories:
+- Causal inference
+- Microbiome
+date: "2022-12-10"
+draft: false
+excerpt: We summarize our proposal and future work.
+subtitle: -- MATH 888 Homework 6
+title: A Brief Conclusion
+---
+This analysis is developed with Hanying Jiang and Prof. Kris Sankaran.
+
+In this work, we established a Logistic Normal Multinomial - mediation model to study the mediated intervention effect on compositional outcomes with application to the microbiome data. We propose several variants to suit experiment-specific assumptions and analyze their power on a series of semi-synthetic datasets. We calibrate the credible intervals due to the inadequate uncertainty quantification of variational inference. On the real data analysis, we didn’t find noticeable indirect effects. Our estimation and inference are based on the interest of mediation effects on the relative abundance scale. One caveat is that the differences in magnitudes of relative abundance among taxa may hide interesting taxa, and the no unmeasured confounding assumptions can be questionable especially when the sparsity is confounded with treatment assignments. Future work can be targeted on computation (a fast and accurate interval estimation),  generalization (e.g., to the longitudinal setting), reproducibility (software), validation (sensitivity analysis) and interpretability (biological experiments).
